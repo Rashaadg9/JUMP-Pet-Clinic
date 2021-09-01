@@ -8,7 +8,7 @@ import javax.persistence.Transient;
 public class PetOwner implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-
+	
 	Integer ownerId;
 	
 	String firstName;

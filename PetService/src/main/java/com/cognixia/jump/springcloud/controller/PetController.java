@@ -34,7 +34,7 @@ public class PetController
 		return petRepository.findPetByPetId(petId);
 	}
 	
-	@GetMapping(value = "/pet/petOwner/{ownerId}")
+	@GetMapping(value = "/pet/petowner/{ownerId}")
 	public Iterable<Pet> findByOwnerId(@PathVariable Integer ownerId) {
 		logger.info("Find by Owner ID :" + ownerId);
 		return petRepository.findAllByOwnerId(ownerId);

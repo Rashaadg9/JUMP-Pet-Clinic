@@ -18,7 +18,7 @@ import com.cognixia.jump.springcloud.model.Pet;
 @FeignClient(name = "pet-service", fallback = PetServiceImpl.class)
 public interface PetService
 {
-	@GetMapping(value = "/pet/petOwner/{ownerId}")
+	@GetMapping(value = "/pet/petowner/{ownerId}")
 	List<Pet> findByOwnerId(@PathVariable("ownerId") Integer ownerId);
 	
 	@PutMapping(value = "/pet/{petId}")

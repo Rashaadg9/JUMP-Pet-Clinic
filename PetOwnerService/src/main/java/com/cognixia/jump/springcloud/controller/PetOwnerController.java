@@ -25,7 +25,7 @@ public class PetOwnerController
 	@Autowired
 	PetService petService;
 	
-	@GetMapping(value = "/petOwner")
+	@GetMapping(value = "/petowner")
 	public Iterable<PetOwner> all()
 	{
 
@@ -38,7 +38,7 @@ public class PetOwnerController
 		return petOwner;
 	}
 	
-	@GetMapping(value = "/petOwner/{ownerId}")
+	@GetMapping(value = "/petowner/{ownerId}")
 	public PetOwner findByOwnerId(@PathVariable Integer ownerId)
 	{
 		PetOwner petOwner = petOwnerRepository.findByOwnerId(ownerId);
@@ -46,7 +46,7 @@ public class PetOwnerController
 		return petOwner;
 	}
 	
-	@PostMapping(value = "/petOwner")
+	@PostMapping(value = "/petowner")
 	public PetOwner save(@RequestBody PetOwner petOwner)
 	{
 		List<Pet> pets = petOwner.getPet();
@@ -59,13 +59,13 @@ public class PetOwnerController
 		return result;
 	}
 	
-	@PutMapping(value = "/petOwner")
+	@PutMapping(value = "/petowner")
 	public PetOwner update(@RequestBody PetOwner petOwner)
 	{
 		return petOwnerRepository.save(petOwner);
 	}
 	
-	@DeleteMapping(value = "/petOwner")
+	@DeleteMapping(value = "/petowner")
 	public void delete(@RequestBody PetOwner petOwner)
 	{
 		petOwnerRepository.delete(petOwner);

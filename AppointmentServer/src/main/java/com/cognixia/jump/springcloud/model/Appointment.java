@@ -26,11 +26,28 @@ public class Appointment implements Serializable
 	@Column(name="DATE")
 	Date date;
 	
-	@Column(name="PETOWNERID")
-	Integer ownerId;
+	@Column(name="petownerid")
+	Integer petownerid;
 	
 	@Transient
-	List<PetOwner> petOwner;
+	PetOwner petOwner;
+	
+
+	public Appointment()
+	{
+		super();
+	}
+
+
+	public Appointment(Integer appointmentId, Date date, Integer petownerid, PetOwner petOwner) {
+		super();
+		this.appointmentId = appointmentId;
+		this.date = date;
+		this.petownerid = petownerid;
+		this.petOwner = petOwner;
+	}
+
+
 
 	public Integer getAppointmentId() {
 		return appointmentId;
@@ -48,27 +65,28 @@ public class Appointment implements Serializable
 		this.date = date;
 	}
 
-	public Integer getOwnerId() {
-		return ownerId;
+	public Integer getPetownerid() {
+		return petownerid;
 	}
 
-	public void setOwnerId(Integer ownerId) {
-		this.ownerId = ownerId;
+	public void setPetownerid(Integer petownerid) {
+		this.petownerid = petownerid;
 	}
-
-	public List<PetOwner> getPetOwner() {
+	
+	public PetOwner getPetOwner() {
 		return petOwner;
 	}
 
-	public void setPetOwner(List<PetOwner> petOwner) {
+	public void setPetOwner(PetOwner petOwner) {
 		this.petOwner = petOwner;
 	}
 
 	@Override
 	public String toString() {
-		return "Appointment [appointmentId=" + appointmentId + ", date=" + date + ", ownerId=" + ownerId + ", petOwner="
-				+ petOwner + "]";
+		return "Appointment [appointmentId=" + appointmentId + ", date=" + date + ", petownerid=" + petownerid
+				+ ", petOwner=" + petOwner + "]";
 	}
-
+	
+	
 	
 }

@@ -1,6 +1,5 @@
 package com.cognixia.jump.springcloud.service;
 
-
 import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
@@ -14,20 +13,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.cognixia.jump.springcloud.model.PetOwner;
 
-
 @Service
-@FeignClient(name = "petOwner-service", fallback = PetOwnerServiceImpl.class)
+@FeignClient(name = "petowner-service", fallback = PetOwnerImpl.class)
 public interface PetOwnerService
 {
-	@GetMapping(value = "/petOwner/{ownerId}")
-	List<PetOwner> findByOwnerId(@PathVariable("ownerId") Integer ownerId);
+	@GetMapping("/petowner/{ownerId}")
+	PetOwner findByOwnerId(@PathVariable("ownerId") Integer ownerId);
 	
-	@PutMapping(value = "/petOwner/{ownerId}")
-	PetOwner update(@PathVariable("ownerId") Integer ownerId,@RequestBody PetOwner petowner);
+	@PutMapping(value = "/petowner")
+	PetOwner update(@RequestBody PetOwner petOwner);
 	
-	@DeleteMapping(value = "/petOwner/{ownerId}")
-	void delete(@PathVariable("ownerId") Integer ownerId);
+	@DeleteMapping(value = "/petowner")
+	void delete(@RequestBody PetOwner petOwner);
 	
-	@PostMapping(value = "/petOwner")
-	PetOwner save(@RequestBody PetOwner petowner);
+	@PostMapping(value = "/petowner")
+	PetOwner save(@RequestBody PetOwner petOwner);
 }

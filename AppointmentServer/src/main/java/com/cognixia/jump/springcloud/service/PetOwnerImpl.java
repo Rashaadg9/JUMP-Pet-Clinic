@@ -7,33 +7,31 @@ import org.springframework.stereotype.Component;
 
 import com.cognixia.jump.springcloud.model.PetOwner;
 
-
 @Component
-public class PetOwnerServiceImpl implements PetOwnerService
+public class PetOwnerImpl implements PetOwnerService
 {
-	@Override
-	public List<PetOwner> findByOwnerId(Integer appointmentId) {
-		List<PetOwner> defaultList = new ArrayList<>();
-		defaultList.add(new PetOwner());
-        return defaultList;
+	public PetOwner findByOwnerId(Integer ownerId)
+	{
+		PetOwner defaultOwner = new PetOwner();
+		System.out.println("--------------------FALLBACK--------------------");
+		return defaultOwner;
 	}
-	
+
 	@Override
-	public PetOwner update(Integer ownerId, PetOwner petowner) {
+	public PetOwner update(PetOwner petOwner) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void delete(Integer ownerId) {
+	public void delete(PetOwner petOwner) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public PetOwner save(PetOwner petowner) {
+	public PetOwner save(PetOwner petOwner) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 }
